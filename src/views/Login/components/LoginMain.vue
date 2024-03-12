@@ -35,6 +35,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { loginApi } from '@/apis/userApi';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 // 登录
 const inputUsername = ref()
 const inputPassword = ref()
@@ -67,7 +69,23 @@ const check = async () => {
         const username = inputUsername.value
         const password = inputPassword.value
         const res = await loginApi({username,password})
-        console.log(res);
+        const userData = res.data
+        if (userData.code === '001') {
+            ElMessage({
+                type: 'success',
+                message: userData.msg
+            })
+            // 将用户信息本地存储
+            localStorage.setItem('username', userData.data.user_data['user']['username'])
+            localStorage.setItem('token', userData.data.user_data['token'])
+            localStorage.setItem('userId', userData.data.user_data['user']['userId'])
+            router.push({ path: '/home' })
+        } else {
+            ElMessage({
+                type: 'error',
+                message: userData.msg
+            })
+        }
         
     } else {
         ElMessage({
