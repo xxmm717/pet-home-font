@@ -63,7 +63,7 @@ const draw = () => {
         ctx.fillText(txt, x, y);
     }
 };
-
+// 登录请求
 const check = async () => {
     if (inputValue.value.toLowerCase() === code.toLowerCase()) {
         const username = inputUsername.value

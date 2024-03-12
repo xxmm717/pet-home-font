@@ -4,8 +4,7 @@
             <el-container>
                 <!-- 标题 -->
                 <el-header class="Login_header_contianer">
-                    <img src="https://tanhua-zxm.oss-cn-hangzhou.aliyuncs.com/pet-home/logo.jpg"
-                        alt="">
+                    <img src="https://tanhua-zxm.oss-cn-hangzhou.aliyuncs.com/pet-home/logo.jpg" alt="">
                 </el-header>
                 <!-- 版心 -->
                 <el-main class="Login_main_contianer">
@@ -25,6 +24,31 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+import { registerApi } from '@/apis/userApi';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+// 登录
+const inputUsername = ref()
+const inputPassword = ref()
+
+const sendMsg = async () => {
+    const username = inputUsername.value
+    const password = inputPassword.value
+    const res = await registerApi({ username, password })
+    const code = res.data.code
+    if (code == '001') {
+        ElMessage({
+            type: 'success',
+            message: '注册成功'
+        })
+    } else {
+        ElMessage({
+            type: 'error',
+            message: res.data.msg
+        })
+    }
+}
 
 </script>
 
