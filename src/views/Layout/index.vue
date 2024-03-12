@@ -27,10 +27,10 @@
           <el-menu-item index="8" class="nav_text">我的</el-menu-item>
         </el-menu>
       </el-header>
+
       <!-- 版心 -->
-      <el-main class="contianer_main">
         <RouterView></RouterView>
-      </el-main>
+        
     </el-container>
   </div>
 </template>
