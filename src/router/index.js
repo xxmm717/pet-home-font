@@ -27,6 +27,46 @@ const router = createRouter({
         {
           path: '/home',
           component: () => import('@/views/Home/index.vue')
+        },
+        {
+          path: '/announcement',
+          component: () => import('@/views/Announcement/index.vue'),
+          redirect: '/list',
+          children: [
+            {
+              path: '/list',
+              component: () => import('@/views/Announcement/components/List.vue')
+            },
+            {
+              path: '/detail',
+              name: 'detail',
+              component: () => import('@/views/Announcement/components/Detail.vue')
+            }
+          ]
+        },
+        {
+          path: '/lost',
+          component: () => import('@/views/Lost/index.vue')
+        },
+        {
+          path: '/platform',
+          component: () => import('@/views/Platform/index.vue')
+        },
+        {
+          path: '/volunteer',
+          component: () => import('@/views/Volunteer/index.vue')
+        },
+        {
+          path: '/station',
+          component: () => import('@/views/Station/index.vue')
+        },
+        {
+          path: '/rescue',
+          component: () => import('@/views/Rescue/index.vue')
+        },
+        {
+          path: '/my',
+          component: () => import('@/views/My/index.vue')
         }
       ]
     }

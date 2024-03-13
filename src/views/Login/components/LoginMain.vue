@@ -77,8 +77,10 @@ const check = async () => {
             })
             // 将用户信息本地存储
             localStorage.setItem('username', userData.data.user_data['user']['username'])
+            localStorage.setItem('avatar',userData.data.user_data['user']['avatar'])
             localStorage.setItem('token', userData.data.user_data['token'])
             localStorage.setItem('userId', userData.data.user_data['user']['userId'])
+            localStorage.setItem('active','1')
             router.push({ path: '/home' })
         } else {
             ElMessage({

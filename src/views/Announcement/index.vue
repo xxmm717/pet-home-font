@@ -1,20 +1,25 @@
 <template>
   <div class="contianer">
+    <!-- 版心 -->
     <RouterView/>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue"
 
 </script>
 
 <style lang="scss" scoped>
 .contianer {
   width: 100%;
-  height: 100vh;
-  background-size:100% 100%;
-  background-image: url('https://tanhua-zxm.oss-cn-hangzhou.aliyuncs.com/pet-home/%E9%A6%96%E9%A1%B5%E8%83%8C%E6%99%AF2.png');
+  background-color: #eee;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 15px;
 }
+
+
 </style>
