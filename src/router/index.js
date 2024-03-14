@@ -46,7 +46,18 @@ const router = createRouter({
         },
         {
           path: '/lost',
-          component: () => import('@/views/Lost/index.vue')
+          component: () => import('@/views/Lost/index.vue'),
+          redirect: '/lostIndex',
+          children: [
+            {
+              path: '/lostIndex',
+              component: () => import('@/views/Lost/components/Main.vue')
+            },
+            {
+              path: '/lostPub',
+              component: () => import("@/views/Lost/components/Publish.vue")
+            }
+          ]
         },
         {
           path: '/platform',
