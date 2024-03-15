@@ -1,4 +1,7 @@
 <template>
+    <el-affix :offset="120" style="padding-left: 33vh;background-color: #eee;">
+        <el-button type="primary" style="background-color: tomato;width: 10vh;" @click="pub">发布</el-button>
+    </el-affix>
     <div class="contianer" v-for="item in list">
         <!-- 单个盒子 -->
         <div class="main">
@@ -18,7 +21,8 @@
             <hr style="margin: 1vh 0;">
             <!-- 地址时间 -->
             <h1>{{ item.address }}</h1>
-            <pre style="color: gray;margin: 1vh 0;font-size: 15px;font-weight: 600;">丢失时间： {{ dateChange(item.datetime) }}</pre>
+            <pre
+                style="color: gray;margin: 1vh 0;font-size: 15px;font-weight: 600;">丢失时间： {{ dateChange(item.datetime) }}</pre>
             <!-- 描述 -->
             <div style="margin: 1vh 0;font-size: 18px;">{{ item.description }}</div>
             <!-- 图片 -->
@@ -32,7 +36,7 @@
                 <span>
                     <el-image style="width: 30vh; height: 40vh;" :src=item.p3 fit="cover" />
                 </span>
-               
+
             </div>
         </div>
 
@@ -43,6 +47,11 @@
 import { onMounted, ref } from "vue"
 import { lostApi } from "@/apis/lostApi";
 import { dateChange } from "@/utils/dateUtils";
+import { useRouter } from "vue-router";
+const router = useRouter()
+const pub = () => {
+  router.push({path: '/lostPub'})
+}
 
 // 渲染
 const list = ref()
@@ -91,10 +100,12 @@ onMounted(() => getList())
     padding-left: 3vh;
     padding-right: 5vh;
 }
+
 .pictures {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
     span {
         width: 30vh;
     }

@@ -9,3 +9,18 @@ export const lostApi = () => {
         }
     })
 }
+export const uploadApi = (formData,pictures) => {
+    return http({
+        method: 'POST',
+        url: 'lost/pub',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            address: formData.address,
+            datetime: formData.datetime,
+            description: formData.description,
+            pictures
+        }
+    })
+}
