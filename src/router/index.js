@@ -61,7 +61,22 @@ const router = createRouter({
         },
         {
           path: '/platform',
-          component: () => import('@/views/Platform/index.vue')
+          component: () => import('@/views/Platform/index.vue'),
+          redirect: '/platformMain',
+          children: [
+            {
+              path: '/platformMain',
+              component: () => import('@/views/Platform/components/Main.vue')
+            },
+            {
+              path: '/platformPub',
+              component: () => import("@/views/Platform/components/Pub.vue")
+            },
+            {
+              path: '/inside',
+              component: () => import('@/views/Platform/components/Inside.vue')
+            }
+          ]
         },
         {
           path: '/volunteer',

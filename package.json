@@ -10,17 +10,21 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@videojs-player/vue": "^1.0.0",
     "axios": "^1.6.7",
     "element-plus": "^2.6.1",
     "node-sass": "^9.0.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persist": "^1.0.0",
+    "video.js": "^7.21.5",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-video-player": "^6.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "axois": "^0.0.1-security",
+    "less": "^4.2.0",
     "sass": "^1.71.1",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",

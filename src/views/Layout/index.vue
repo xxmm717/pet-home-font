@@ -21,7 +21,6 @@
           <el-menu-item index="2" class="nav_text" @click="pushAnnounce">知识公告</el-menu-item>
           <el-menu-item index="3" class="nav_text" @click="pushLost">丢失宠物</el-menu-item>
           <el-menu-item index="4" class="nav_text" @click="pushPlatform">动物论坛</el-menu-item>
-          <el-menu-item index="5" class="nav_text" @click="pushVolunteer">志愿者</el-menu-item>
           <el-menu-item index="6" class="nav_text" @click="pushStation">救助站</el-menu-item>
           <el-menu-item index="7" class="nav_text" @click="pushRescue">流浪动物救助</el-menu-item>
           <el-menu-item index="8" class="nav_text" @click="pushMy">我的</el-menu-item>
