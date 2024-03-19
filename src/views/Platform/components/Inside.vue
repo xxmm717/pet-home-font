@@ -8,10 +8,10 @@
           <!-- 轮播图 -->
           <div>
             <el-carousel style="width: 100%;height: 70vh;">
-              <el-carousel-item v-for="item in 3"
+              <el-carousel-item v-for="item in detail.picList"
                 style="display: flex;justify-content: center;align-items: center;width: 100%;height: 70vh">
                 <el-image style="width: 100%;height: 70vh"
-                  src="https://tanhua-zxm.oss-cn-hangzhou.aliyuncs.com/pet-home/about.png" fit="cover" />
+                  :src="item" fit="cover" />
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -22,24 +22,23 @@
           <div class="demo-type avatar">
             <el-avatar :size="60">
               <img
-                src="https://tanhua-zxm.oss-cn-hangzhou.aliyuncs.com/pet-home/%E9%A6%96%E9%A1%B5%E8%83%8C%E6%99%AF2.png" />
+                :src="detail.avatar" />
             </el-avatar>
             <div class="content">
-              <span style="font-size: 18px;margin-left: 1vh;">root</span>
+              <span style="font-size: 18px;margin-left: 1vh;">{{ detail.username }}</span>
             </div>
           </div>
           <!-- 标题和详情 -->
-          <h2 style="margin: 2vh 0;">哈设计费好久好久</h2>
-          <p style="font-size: 18px;margin: 2vh 0">打卡机达克拉讲课费久啊手机大发合计阿加莎东方红郡阿萨德合法金卡萨达合计房间卡收到回复记录卡挥洒的分级和手机叫啥
-            发链接撒的谎发链接看哈就开始电话费计划书到家啦会尽快撒护肤就好</p>
-          <p style="color: gray;margin: 2vh 0">daskdksj</p>
+          <h2 style="margin: 2vh 0;">{{ detail.title }}</h2>
+          <p style="font-size: 18px;margin: 2vh 0">{{ detail.content }}</p>
+          <p style="color: gray;margin: 2vh 0">{{ dateChange(detail.datetime) }}</p>
           <!-- 点赞留言 -->
           <div class="div_star_comment">
             <!-- 点赞 -->
             <like></like>
             <!-- 留言 -->
             <div>
-              <input type="text" placeholder="发布你的留言" style="width: 30vh;">
+              <input type="text" placeholder="发布你的留言" style="width: 30vh;" v-model="comment">
               <button @click="sendMsg" style="width: 10vh;">评论</button>
             </div>
           </div>
@@ -54,24 +53,24 @@
               <p style="font-size: 18px;">dd</p>
             </div> -->
             <div>
-              <div v-for="item in 4">
+              <div v-for="item in detail.commentVoList">
                 <!-- 评论布局 -->
                 <div style="padding-top: 10px;">
                   <div>
                     <!-- 头像 -->
                     <div class="demo-type avatar">
                       <el-avatar :size="60">
-                        <img src="C:\projects-dev\pet-home\pet-home-font\src\assets\1.png" />
+                        <img :src="item.avatar" />
                       </el-avatar>
                       <div class="content">
-                        <span style="font-size: 16px;">root</span>
-                        <span style="font-size: 12px;">ddddd</span>
+                        <span style="font-size: 16px;">{{ item.username }}</span>
+                        <span style="font-size: 12px;">{{ dateChange(item.datetime) }}</span>
                       </div>
                     </div>
 
                   </div>
                   <!-- 评论 -->
-                  <div style="padding-top: 5px;font-size: 16px;">ddddd</div>
+                  <div style="padding-top: 5px;font-size: 16px;">{{ item.comment }}</div>
                 </div>
               </div>
             </div>
@@ -87,8 +86,35 @@
 <script setup>
 import { ref, onMounted, computed } from "vue"
 import like from '@/views/Announcement/components/Like.vue'
+import { detailPlatApi,commentApi } from "@/apis/platformApi";
+import { dateChange } from "@/utils/dateUtils";
+import { useRoute } from "vue-router";
+const route = useRoute()
+const id = route.params.id
 
+const comment = ref('')
 
+// 渲染
+const detail = ref({})
+const getPlatDetail = async ({id}) => {
+  const res = await detailPlatApi({id})
+  detail.value = res.data.data.detail
+}
+onMounted(() => {
+  // const id = localStorage.getItem('id')
+  getPlatDetail({id})
+})
+
+// 评论
+const sendMsg = async () => {
+    await commentApi(id,comment.value)
+    comment.value=''
+    ElMessage({
+      type: 'success',
+      message: '评论成功'
+    })
+    getPlatDetail({id})
+}
 
 </script>
 
@@ -239,6 +265,7 @@ import like from '@/views/Announcement/components/Like.vue'
 .scroll::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+
 //点赞留言
 .div_star_comment {
   width: 80vh;

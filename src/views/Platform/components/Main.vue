@@ -4,8 +4,8 @@
     <!-- 搜素框 -->
     <div class="search-container">
       <div class="search-wrapper">
-        <input type="text" @input="handleSearch" placeholder="请输入搜索内容" />
-        <button @click="sendRequest">搜索</button>
+        <input type="text" @input="handleSearch" v-model="search" placeholder="请输入搜索内容" />
+        <button @click="getList">搜索</button>
       </div>
       <el-button type="primary"
         style="background-color: tomato;width: 10vh;border-radius: 10px;float: right;margin-left: 10vh;">发布</el-button>
@@ -17,9 +17,10 @@
         <!-- 图片 -->
         <div class="box" v-for="item in list.slice((row - 1) * 5, (row) * 5)" :key="item.platformId">
           <el-image style="width: 100%; height: 35vh;border-radius: 20px;" :src=item.cover fit="cover"
-            @click="inside" />
+            @click="inside(item.platformId)" />
           <!-- 标题 -->
-          <h4 @click="inside" style=" overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{ item.title }}</h4>
+          <h4 @click="inside(item.platformId)" style=" overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{ item.title }}
+          </h4>
           <!-- 用户头像 -->
           <div class="demo-type avatar">
             <el-avatar :size="30">
@@ -62,21 +63,23 @@ const page = ref(1)
 const pageSize = ref(15)
 const total = ref(0)
 const list = ref([])
+const search = ref('')
 
 // 进入详情
-const inside = () => {
-  router.push({ path: '/inside' })
+const inside = (id) => {
+  // localStorage.setItem('id',id)
+  router.push({ name: 'inside',params: {'id':id} })
 }
 //渲染
 const getList = async () => {
-  const res = await listApi(page.value, pageSize.value)
+  const res = await listApi(page.value, pageSize.value, search.value)
   total.value = res.data.data.list.total
   list.value = res.data.data.list.records
 }
 
 onMounted(() => getList())
 
-// 搜索
+
 
 </script>
 
@@ -135,6 +138,7 @@ button:hover {
 .box_container {
   display: flex;
   justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
   /* 你可以根据需要调整间距大小 */

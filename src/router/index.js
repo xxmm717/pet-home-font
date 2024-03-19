@@ -73,7 +73,8 @@ const router = createRouter({
               component: () => import("@/views/Platform/components/Pub.vue")
             },
             {
-              path: '/inside',
+              path: '/inside/:id',
+              name: 'inside',
               component: () => import('@/views/Platform/components/Inside.vue')
             }
           ]
