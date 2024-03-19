@@ -8,7 +8,7 @@
         <button @click="getList">搜索</button>
       </div>
       <el-button type="primary"
-        style="background-color: tomato;width: 10vh;border-radius: 10px;float: right;margin-left: 10vh;">发布</el-button>
+        style="background-color: tomato;width: 10vh;border-radius: 10px;float: right;margin-left: 10vh;" @click="pub">发布</el-button>
     </div>
     <!-- 版心 -->
     <div class="wrap">
@@ -79,7 +79,9 @@ const getList = async () => {
 
 onMounted(() => getList())
 
-
+const pub = () => {
+  router.push({path: '/platformPub'})
+}
 
 </script>
 
@@ -178,7 +180,7 @@ flex-basis: 定义了在分配多余空间之前，项目占据的主轴空间�
   img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
 
   }
 }

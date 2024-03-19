@@ -41,3 +41,19 @@ export const commentApi = (id,comment) => {
         }
     })
 }
+// 发布请求
+export const pubApi = (formData,pictures) => {
+    return http({
+        method: 'POST',
+        url: 'platform/pub',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data:{
+            title: formData.title,
+            content: formData.content,
+            pictures
+        }
+    })
+}
+

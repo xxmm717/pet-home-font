@@ -11,7 +11,7 @@
               <el-carousel-item v-for="item in detail.picList"
                 style="display: flex;justify-content: center;align-items: center;width: 100%;height: 70vh">
                 <el-image style="width: 100%;height: 70vh"
-                  :src="item" fit="cover" />
+                  :src="item" fit="contian" />
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -120,7 +120,7 @@ const sendMsg = async () => {
 
 <style lang="scss" scoped>
 .box_contianer {
-  width: 140vh;
+  width: 130vh;
 }
 
 .contianer {
@@ -154,7 +154,7 @@ const sendMsg = async () => {
 
 .main_left {
   height: 73vh;
-  width: 50%;
+  width: 45%;
   background-color: #f7f9fae7;
   padding: 10px;
 }
