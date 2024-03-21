@@ -140,7 +140,6 @@ button:hover {
 .box_container {
   display: flex;
   justify-content: space-evenly;
-  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
   /* 你可以根据需要调整间距大小 */

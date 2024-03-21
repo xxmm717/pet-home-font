@@ -39,7 +39,7 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="submitForm('form')">立即发布</el-button>
+          <el-button type="primary" @click="submitForm('form')">立即修改</el-button>
           <el-button @click="resetForm('form')">重置</el-button>
         </el-form-item>
       </el-form>

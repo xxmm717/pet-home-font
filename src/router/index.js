@@ -85,11 +85,23 @@ const router = createRouter({
         },
         {
           path: '/station',
-          component: () => import('@/views/Station/index.vue')
+          component: () => import('@/views/Station/index.vue'),
+          redirect: '/rescueList',
+          children: [
+            {
+              path: '/rescueList',
+              component: () => import('@/views/Station/components/List.vue')
+            },
+            {
+              path: '/rescueDetail/:id',
+              name:'rescueDetail',
+              component: () => import('@/views/Station/components/Detail.vue')
+            }
+          ]
         },
         {
           path: '/rescue',
-          component: () => import('@/views/Rescue/index.vue')
+          component: () => import('@/views/Rescue/index.vue'),
         },
         {
           path: '/my',
