@@ -34,7 +34,7 @@
                     fit="cover" />
                 </div>
                 <!-- 文字描述 -->
-                <div class="div_right" @click="pushDetail()">
+                <div class="div_right" @click="pushDetail(item.announcementId)">
                   <h1>{{ item.title }}</h1>
                   <br>
                   <p><el-icon>
@@ -140,6 +140,12 @@
   const exit = () => {
     router.push({path:'/'})
   }
+
+  const pushDetail = (id) => {
+  activeStore.id = id
+  localStorage.setItem('announcementId',id)
+  router.push({path: '/detail'})
+}
   
   </script>
   

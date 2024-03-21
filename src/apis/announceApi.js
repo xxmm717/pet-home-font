@@ -22,11 +22,25 @@ export const detailApi = ({id}) => {
         }
     })
 }
-// 公告点赞
-export const likeApi = ({id}) => {
+// 点赞
+export const likeApi = (id,click) => {
     return http({
         method: 'POST',
         url: 'announce/like',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            id,
+            click
+        }
+    })
+}
+// 查看用户是否点过赞
+export const getLikeApi = (id) => {
+    return http({
+        method: 'POST',
+        url: 'announce/getLike',
         headers: {
             'Content-Type': 'application/json',
         },

@@ -15,7 +15,7 @@
       <!-- 点赞留言 -->
       <div class="div_star_comment">
         <!-- 点赞 -->
-        <like></like>
+        <like :announcementId=item.announcementId></like>
         <!-- 留言 -->
         <div>
           <input type="text" placeholder="发布你的留言" v-model="message">
