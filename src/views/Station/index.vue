@@ -1,5 +1,5 @@
 <template>
-  <div class="">救助站</div>
+  <div class=""></div>
 </template>
 
 <script setup>

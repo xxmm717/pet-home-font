@@ -85,7 +85,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue"
-import like from '@/views/Announcement/components/Like.vue'
+import like from '@/views/Platform/components/Like.vue'
 import { detailPlatApi,commentApi } from "@/apis/platformApi";
 import { dateChange } from "@/utils/dateUtils";
 import { useRoute } from "vue-router";

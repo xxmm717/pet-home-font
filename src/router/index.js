@@ -93,7 +93,18 @@ const router = createRouter({
         },
         {
           path: '/my',
-          component: () => import('@/views/My/index.vue')
+          component: () => import('@/views/My/index.vue'),
+          redirect: '/myMain',
+          children: [
+            {
+              path: '/myMain',
+              component: () => import('@/views/My/components/MyMain.vue')
+            },
+            {
+              path: '/myEdit',
+              component: () => import('@/views/My/components/MyEdit.vue')
+            }
+          ]
         }
       ]
     }
