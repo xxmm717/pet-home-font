@@ -12,7 +12,8 @@
     </div>
     <!-- 申请 -->
     <div style="display: flex;justify-content: flex-start;align-items: center;"> 
-      <textarea v-model="reason" style="border: 1px solid black;width: 40vh;height: 4vh;margin-right: 2vh;font-size: 15px;" placeholder="请输入申请原因"></textarea>
+      <textarea v-model="reason" style="border: 1px solid black;width: 40vh;height: 4vh;margin-right: 2vh;
+      font-size: 15px;" placeholder="请输入申请原因，申请成功将通过个人联系方式回访"></textarea>
       <button :class="buttonClass" @click="toApply" :disabled="isApplying">
         {{ buttonText }}
       </button>

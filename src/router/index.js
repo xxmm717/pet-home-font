@@ -102,6 +102,18 @@ const router = createRouter({
         {
           path: '/rescue',
           component: () => import('@/views/Rescue/index.vue'),
+          redirect: '/rescueMain',
+          children:[
+            {
+              path: '/rescueMain',
+              component: () => import('@/views/Rescue/components/Main.vue')
+            },
+            {
+              path: '/helpInside/:id',
+              name: 'helpInside',
+              component: () => import('@/views/Rescue/components/Inside.vue')
+            }
+          ]
         },
         {
           path: '/my',

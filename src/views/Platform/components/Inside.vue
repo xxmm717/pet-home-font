@@ -11,7 +11,7 @@
               <el-carousel-item v-for="item in detail.picList"
                 style="display: flex;justify-content: center;align-items: center;width: 100%;height: 70vh">
                 <el-image style="width: 100%;height: 70vh"
-                  :src="item" fit="contian" />
+                  :src="item" fit="contain" />
               </el-carousel-item>
             </el-carousel>
           </div>
