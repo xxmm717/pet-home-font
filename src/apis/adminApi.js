@@ -24,3 +24,28 @@ export const snedApi = (result,stationId,userId) => {
         }
     })
 }
+// 申请领养审核列表请求
+export const RreviewApi = () => {
+    return http({
+        method: 'GET',
+        url: 'admin/Rreview',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+}
+// 领养审核
+export const sendApi = (result,rescueId,userId) => {
+    return http({
+        method: 'PUT',
+        url: 'admin/dealRreview',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            result,
+            rescueId,
+            userId
+        }
+    })
+}

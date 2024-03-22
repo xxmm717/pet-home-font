@@ -17,11 +17,11 @@
             <div class="text_div">年龄: {{ item.age }}</div>
             <div class="text_div">地址：{{ item.address }}</div>
             <hr>
-            <div class="text_div">救护站名称：{{ item.stationName }}</div>
+            <div class="text_div">领养动物：{{ item.name }}</div>
             <div class="text_div">申请原因：{{ item.reason }}</div>
             <div style="display: flex;justify-content: center;justify-content: center;width: 100%;margin-top: 2vh;">
-                <button class="agree" @click="send('agree',item.stationId,item.userId)">同意</button>
-                <button class="reject" @click="send('reject',item.stationId.item.userId)">拒绝</button>
+                <button class="agree" @click="send('agree',item.rescueId,item.userId)">同意</button>
+                <button class="reject" @click="send('reject',item.rescueId,item.userId)">拒绝</button>
             </div>
         </div>
 
@@ -30,20 +30,19 @@
 
 <script setup>
 import { onMounted, ref } from "vue"
-import { dateChange } from "@/utils/dateUtils";
-import { EreviewApi,snedApi } from "@/apis/adminApi"
+import { RreviewApi,sendApi } from "@/apis/adminApi"
 
 // 渲染
 const list = ref()
 const getList = async () => {
-    const res = await EreviewApi()
+    const res = await RreviewApi()
     list.value = res.data.data.list
 }
 
 onMounted(() => getList())
 //提交
-const send = async (result,stationId,userId) => {
-    await snedApi(result,stationId,userId)
+const send = async (result,rescueId,userId) => {
+    await sendApi(result,rescueId,userId)
     getList()
 }
 

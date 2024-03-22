@@ -1,9 +1,23 @@
 <template>
-  <div class="">领养审核</div>
+  
+  <Main></Main>
+
 </template>
 
 <script setup>
-import {} from "vue"
+import { } from "vue"
+import Main from '@/views/AdminRescueReview/components/Main.vue'
+
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+//头部
+.affix-container {
+  text-align: center;
+  height: 40px;
+  border-radius: 4px;
+  position: relative;
+}
+</style>
+
