@@ -37,7 +37,7 @@ const buttonClass = ref('button');
 const reason = ref('')
 
 const apply = () => {
-  if (buttonText.value == '志愿者申请' || buttonText.value == '已拒绝，重新申请') {
+  if (buttonText.value == '志愿者申请' || buttonText.value == '未通过，重新申请') {
     isApplying.value = false
   } else {
     isApplying.value = true;

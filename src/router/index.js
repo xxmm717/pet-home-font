@@ -131,6 +131,40 @@ const router = createRouter({
           ]
         }
       ]
+    },
+    {
+      path: '/adminLogin',
+      component:() => import('@/views/AdminLogin/index.vue'),
+      redirect: '/loginIndex',
+      children: [
+        {
+          path: '/loginIndex',
+          component: () => import("@/views/AdminLogin/components/LoginMain.vue")
+        }
+      ]
+    },
+    {
+      path: '/adminLayout',
+      component: () => import('@/views/AdminLayout/index.vue'),
+      redirect: '/Ereview',
+      children: [
+        {
+          path: '/Ereview',
+          component: () => import('@/views/AdminEngineerReview/index.vue')
+        },
+        {
+          path: '/Rreview',
+          component: () => import('@/views/AdminRescueReview/index.vue')
+        },
+        {
+          path: '/pubA',
+          component: () => import('@/views/AdminPubAnnounce/index.vue')
+        },
+        {
+          path: '/pubR',
+          component: () => import('@/views/AdmiPubRescue/index.vue')
+        }
+      ]
     }
   ]
 })

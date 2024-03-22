@@ -1,5 +1,5 @@
 <template>
-    <a href="/adminLogin" style="font-size: 15px;color: blue;">管理员？</a>
+    <!-- <a href="/login" style="font-size: 15px;color: blue;">用户版</a> -->
     <div class="main_contianer">
         <div class="common-layout">
             <el-container>
@@ -22,9 +22,9 @@
                             </div>
                         </form>
                         <br>
-                        <button @click="check">登录</button>
+                        <button @click="check">管理员登录</button>
                         <br>
-                        <p> 没有账号？<a href="/register" style="color: blue;">点击注册 </a></p>
+                        <p><a href="/login" style="color: blue;">切换用户版 </a></p>
                     </div>
                 </el-main>
             </el-container>
@@ -80,8 +80,8 @@ const check = async () => {
             localStorage.setItem('avatar',userData.data.user_data['user']['avatar'])
             localStorage.setItem('token', userData.data.user_data['token'])
             localStorage.setItem('userId', userData.data.user_data['user']['userId'])
-            localStorage.setItem('active','1')
-            router.push({ path: '/home' })
+            localStorage.setItem('active2','1')
+            router.push({ path: '/Ereview' })
         } else {
             ElMessage({
                 type: 'error',
