@@ -10,7 +10,7 @@ export const EreviewApi = () => {
     })
 }
 // 处理志愿者审核
-export const snedApi = (result,stationId,userId) => {
+export const snedApi = (result, stationId, userId) => {
     return http({
         method: 'PUT',
         url: 'admin/dealEreview',
@@ -35,7 +35,7 @@ export const RreviewApi = () => {
     })
 }
 // 领养审核
-export const sendApi = (result,rescueId,userId) => {
+export const sendApi = (result, rescueId, userId) => {
     return http({
         method: 'PUT',
         url: 'admin/dealRreview',
@@ -46,6 +46,40 @@ export const sendApi = (result,rescueId,userId) => {
             result,
             rescueId,
             userId
+        }
+    })
+}
+//发布公告
+export const uploadApi = (formData, pictures) => {
+    return http({
+        method: 'POST',
+        url: 'admin/pubA',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            title: formData.title,
+            content: formData.content,
+            pictures
+        }
+    })
+}
+//发布流浪动物救助信息
+export const uploadRApi = (formData, pictures) => {
+    return http({
+        method: 'POST',
+        url: 'admin/pubR',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            name: formData.name,
+            gender: formData.gender,
+            age: formData.age,
+            type: formData.type,
+            healthy: formData.healthy,
+            detail: formData.detail,
+            pictures
         }
     })
 }
