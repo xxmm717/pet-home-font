@@ -77,7 +77,7 @@ const handlePreview = (file) => {
 
 const beforeUpload = (file) => {
   const isJPGorPNG = file.type === 'image/jpeg' || file.type === 'image/png';
-  const isLt4M = file.size / 1024 / 1024 < 4;
+  const isLt4M = file.size / 1024 / 1024 < 20;
 
   if (!isJPGorPNG) {
     this.$message.error('上传图片只能是 JPG 或 PNG 格式!');

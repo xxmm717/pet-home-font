@@ -48,6 +48,8 @@ const sendMsg = async () => {
             message: res.data.msg
         })
     }
+    inputUsername.value = ''
+    inputPassword.value = ''
 }
 
 </script>

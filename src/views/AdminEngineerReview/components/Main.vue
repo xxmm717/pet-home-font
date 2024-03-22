@@ -21,7 +21,7 @@
             <div class="text_div">申请原因：{{ item.reason }}</div>
             <div style="display: flex;justify-content: center;justify-content: center;width: 100%;margin-top: 2vh;">
                 <button class="agree" @click="send('agree',item.stationId,item.userId)">同意</button>
-                <button class="reject" @click="send('reject',item.stationId.item.userId)">拒绝</button>
+                <button class="reject" @click="send('reject',item.stationId,item.userId)">拒绝</button>
             </div>
         </div>
 
