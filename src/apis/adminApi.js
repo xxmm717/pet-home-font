@@ -112,3 +112,36 @@ export const ARemoveApi = (id) => {
         }
     })
 }
+//修改救助信息
+export const RUpdateApi = (formData, pictures) => {
+    return http({
+        method: 'PUT',
+        url: 'admin/RUpdate',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            id: formData.id,
+            name: formData.name,
+            gender: formData.gender,
+            age: formData.age,
+            type: formData.type,
+            healthy: formData.healthy,
+            detail: formData.detail,
+            pictures
+        }
+    })
+}
+//删除救助信息
+export const RRemoveApi = (id) => {
+    return http({
+        method: 'PUT',
+        url: 'admin/RRemove',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            id
+        }
+    })
+}

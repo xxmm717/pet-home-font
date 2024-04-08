@@ -177,7 +177,24 @@ const router = createRouter({
         },
         {
           path: '/rm',
-          component: () => import('@/views/AdminRescueManager/index.vue')
+          component: () => import('@/views/AdminRescueManager/index.vue'),
+          redirect: '/rmList',
+          children: [
+            {
+              path: '/rmList',
+              component: () => import('@/views/AdminRescueManager/components/Main.vue')
+            },
+            {
+              path: '/rmInside/:id',
+              name: 'rmInside',
+              component: () => import('@/views/AdminRescueManager/components/Inside.vue')
+            },
+            {
+              path: '/rmUpdate/:id',
+              name: 'rmUpdate',
+              component: () => import('@/views/AdminRescueManager/components/Update.vue')
+            }
+          ]
         }
         
       ]
