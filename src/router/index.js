@@ -80,10 +80,6 @@ const router = createRouter({
           ]
         },
         {
-          path: '/volunteer',
-          component: () => import('@/views/Volunteer/index.vue')
-        },
-        {
           path: '/station',
           component: () => import('@/views/Station/index.vue'),
           redirect: '/rescueList',
@@ -163,7 +159,27 @@ const router = createRouter({
         {
           path: '/pubR',
           component: () => import('@/views/AdmiPubRescue/index.vue')
+        },
+        {
+          path: '/am',
+          component: () => import('@/views/AdminAnnounceManager/index.vue'),
+          redirect: '/amList',
+          children: [
+            {
+              path: '/amList',
+              component: () => import('@/views/AdminAnnounceManager/components/List.vue')
+            },
+            {
+              path: '/amUpdate',
+              component: () => import('@/views/AdminAnnounceManager/components/update.vue')
+            }
+          ]
+        },
+        {
+          path: '/rm',
+          component: () => import('@/views/AdminRescueManager/index.vue')
         }
+        
       ]
     }
   ]

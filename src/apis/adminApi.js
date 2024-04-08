@@ -83,3 +83,32 @@ export const uploadRApi = (formData, pictures) => {
         }
     })
 }
+//修改公告信息
+export const AUpdatedApi = (formData, pictures) => {
+    return http({
+        method: 'PUT',
+        url: 'admin/AUpdate',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        data: {
+            id: formData.id,
+            title: formData.title,
+            content: formData.content,
+            pictures
+        }
+    })
+}
+//删除公告信息
+export const ARemoveApi = (id) => {
+    return http({
+        method: 'PUT',
+        url: 'admin/ARemove',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        params: {
+            id
+        }
+    })
+}

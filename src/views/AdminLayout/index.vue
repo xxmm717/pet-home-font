@@ -21,7 +21,9 @@
           <el-menu-item index="2" class="nav_text" @click="pushRreview">领养审核</el-menu-item>
           <el-menu-item index="3" class="nav_text" @click="pushpubA">发布公告</el-menu-item>
           <el-menu-item index="4" class="nav_text" @click="pushPubR">发布流浪动物救助信息</el-menu-item>
-          <el-menu-item index="5" class="nav_text" @click="exit">退出</el-menu-item>
+          <el-menu-item index="5" class="nav_text" @click="pushpubAM">公告管理</el-menu-item>
+          <el-menu-item index="6" class="nav_text" @click="pushPubRM">流浪动物救助信息管理</el-menu-item>
+          <el-menu-item index="7" class="nav_text" @click="exit">退出</el-menu-item>
         </el-menu>
       </el-header>
 
@@ -55,6 +57,14 @@ const pushpubA = () => {
 const pushPubR = () => {
   router.push({path: '/pubR'})
   localStorage.setItem('active2','4')
+}
+const pushpubAM = () => {
+  router.push({path: '/am'})
+  localStorage.setItem('active2','5')
+}
+const pushPubRM = () => {
+  router.push({path: '/rm'})
+  localStorage.setItem('active2','6')
 }
 
 const exit = () => {
